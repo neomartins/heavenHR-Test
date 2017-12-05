@@ -1,0 +1,21 @@
+-------------------------------------------------------------------------------
+Test set: com.heavenHR.applicationService.ApplicationServiceImplTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.63 sec <<< FAILURE! - in com.heavenHR.applicationService.ApplicationServiceImplTest
+shouldReturnApplicationById(com.heavenHR.applicationService.ApplicationServiceImplTest)  Time elapsed: 0.039 sec  <<< FAILURE!
+org.mockito.exceptions.verification.WantedButNotInvoked: 
+Wanted but not invoked:
+com.heavenHR.applicationService.ApplicationService#0 bean.getById(
+    1
+);
+-> at com.heavenHR.applicationService.ApplicationServiceImplTest.shouldReturnApplicationById(ApplicationServiceImplTest.java:98)
+
+However, there were other interactions with this mock:
+com.heavenHR.applicationService.ApplicationService#0 bean.createApplication(
+    com.heavenHR.dto.ApplicationDto@407a7f2a
+);
+-> at com.heavenHR.applicationService.ApplicationServiceImplTest.shouldReturnApplicationById(ApplicationServiceImplTest.java:96)
+
+
+	at com.heavenHR.applicationService.ApplicationServiceImplTest.shouldReturnApplicationById(ApplicationServiceImplTest.java:98)
+
