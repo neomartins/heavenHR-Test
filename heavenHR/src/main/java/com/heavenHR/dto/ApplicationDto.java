@@ -17,8 +17,9 @@ public class ApplicationDto {
 	private String resume;
 
 	private ApplicationStatus applicationStatus;
-	
-	public ApplicationDto(){}
+
+	public ApplicationDto() {
+	}
 
 	/**
 	 * @param id

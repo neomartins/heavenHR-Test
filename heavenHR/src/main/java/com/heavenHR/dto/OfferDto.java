@@ -27,7 +27,9 @@ public class OfferDto {
 
 	private OfferStatus offerStatus;
 
-	public OfferDto(){}
+	public OfferDto() {
+	}
+
 	/**
 	 * @param id
 	 * @param jobTitle

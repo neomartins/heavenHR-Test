@@ -21,24 +21,24 @@ public class ApplicationConverter {
 	@Autowired
 	private OfferConverter offerConvert;
 
-	public Application applicationConvertFromDto(ApplicationDto applicationDto)throws EntityNotFoundException {
+	public Application applicationConvertFromDto(ApplicationDto applicationDto) throws EntityNotFoundException {
 		Offer offer = null;
 		offer = applicationDto.getOffer() != null ? offerService.getById(applicationDto.getOffer().getId()) : null;
 		this.validateApplications(offer);
 		return new Application(applicationDto.getId(), offer, applicationDto.getCandidateEmail(),
 				applicationDto.getResume(), applicationDto.getApplicationStatus());
 	}
-	
+
 	public ApplicationDto applicationConvertToDto(Application application) {
-		
-		return new ApplicationDto(application.getId(), offerConvert.applicationConvertToDto(application.getOffer()), application.getCandidateEmail(),
-				application.getResume(), application.getApplicationStatus());
+
+		return new ApplicationDto(application.getId(), offerConvert.applicationConvertToDto(application.getOffer()),
+				application.getCandidateEmail(), application.getResume(), application.getApplicationStatus());
 	}
-	
-	private void validateApplications(Offer offer){
-        if (offer == null) {
-            logger.warn("Offer not found");
-            throw new EntityNotFoundException("Offer not found.");
-        }
-    }
+
+	private void validateApplications(Offer offer) {
+		if (offer == null) {
+			logger.warn("Offer not found");
+			throw new EntityNotFoundException("Offer not found.");
+		}
+	}
 }

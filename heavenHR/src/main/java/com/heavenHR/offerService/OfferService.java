@@ -13,8 +13,8 @@ public interface OfferService {
 	Offer createOffer(OfferDto offerDto) throws ConstraintsException;
 
 	List<Offer> getAll();
-	
-	Offer getById(Long offerId)throws EntityNotFoundException;
-	
+
+	Offer getById(Long offerId) throws EntityNotFoundException;
+
 	Offer numberOfApplication(Offer offer) throws EntityNotFoundException;
 }

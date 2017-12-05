@@ -15,8 +15,10 @@ public interface ApplicationService {
 	List<ApplicationDto> getApplicationsByOfferId(Long id);
 
 	ApplicationDto getById(Long id);
-	
-	ApplicationDto createApplication(ApplicationDto applicationDto) throws ConstraintsException, EntityNotFoundException;
 
-	ApplicationDto updateApplication(Long applicationId, ApplicationStatus applicationStatus) throws EntityNotFoundException;
+	ApplicationDto createApplication(ApplicationDto applicationDto)
+			throws ConstraintsException, EntityNotFoundException;
+
+	ApplicationDto updateApplication(Long applicationId, ApplicationStatus applicationStatus)
+			throws EntityNotFoundException;
 }

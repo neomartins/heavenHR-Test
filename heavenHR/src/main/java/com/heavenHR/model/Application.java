@@ -23,18 +23,18 @@ import com.heavenHR.common.ApplicationStatus;
  *
  */
 @Entity
-@Table(name = "application", uniqueConstraints = @UniqueConstraint(columnNames = {"offer", "candidate_email"}))
+@Table(name = "application", uniqueConstraints = @UniqueConstraint(columnNames = { "offer", "candidate_email" }))
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Application {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "id", updatable = false, nullable = false, unique= true)
+	@Column(name = "id", updatable = false, nullable = false, unique = true)
 	private Long id;
 
-    @JoinColumn(name = "offer",  updatable = false)
+	@JoinColumn(name = "offer", updatable = false)
 	@ManyToOne
-    private Offer relatedOffer;
+	private Offer relatedOffer;
 
 	@Email
 	@Column(name = "candidate_email")
@@ -46,8 +46,9 @@ public class Application {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "application_status")
 	private ApplicationStatus applicationStatus;
-	
-	public Application(){}
+
+	public Application() {
+	}
 
 	public Application(Long id, Offer offer, String candidateEmail, String resume,
 			ApplicationStatus applicationStatus) {

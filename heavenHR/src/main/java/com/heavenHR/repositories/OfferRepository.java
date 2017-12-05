@@ -11,6 +11,6 @@ import com.heavenHR.model.Offer;
  * @author Gustavo
  *
  */
-public interface OfferRepository extends JpaRepository<Offer, Long>{
+public interface OfferRepository extends JpaRepository<Offer, Long> {
 
 }

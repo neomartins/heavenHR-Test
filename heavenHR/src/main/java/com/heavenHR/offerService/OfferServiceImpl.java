@@ -51,9 +51,9 @@ public class OfferServiceImpl implements OfferService {
 
 	@Override
 	public Offer numberOfApplication(Offer offer) throws EntityNotFoundException {
-			this.offerExist(offer);
-			offer.setNumberOfApplications(offer.getApplicationList().size());
-			return offerRepository.save(offer);
+		this.offerExist(offer);
+		offer.setNumberOfApplications(offer.getApplicationList().size());
+		return offerRepository.save(offer);
 	}
 
 	private Offer offerExist(Offer offer) throws EntityNotFoundException {

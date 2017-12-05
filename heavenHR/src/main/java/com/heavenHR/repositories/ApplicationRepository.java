@@ -10,5 +10,5 @@ import com.heavenHR.model.Application;
 public interface ApplicationRepository extends JpaRepository<Application, Long> {
 
 	@Query("SELECT application FROM Application application WHERE application.relatedOffer.id=?1")
-    List<Application> getApplicationsByOfferId(Long id);
+	List<Application> getApplicationsByOfferId(Long id);
 }

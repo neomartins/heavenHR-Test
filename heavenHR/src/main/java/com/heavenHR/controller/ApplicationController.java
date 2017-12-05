@@ -40,43 +40,43 @@ public class ApplicationController {
 	public ResponseEntity<List<ApplicationDto>> getAll() {
 		return ResponseEntity.ok(applicationService.getAll());
 	}
-	
-    
-    @GetMapping(value ="/{id}", produces = {"application/json"})
-    @ApiOperation(value = "Find applications by offer id")
-    public ResponseEntity<List<ApplicationDto>> getApplicationsByOfferId(@PathVariable Long id) {
-        return ResponseEntity.ok(applicationService.getApplicationsByOfferId(id));
-    }
-    
-    @GetMapping(value ="/{id}/application", produces = {"application/json"})
-    @ApiOperation(value = "Find applications by id")
-    public ResponseEntity<ApplicationDto> getById(@PathVariable Long id) {
-        return ResponseEntity.ok(applicationService.getById(id));
-    }
+
+	@GetMapping(value = "/{id}", produces = { "application/json" })
+	@ApiOperation(value = "Find applications by offer id")
+	public ResponseEntity<List<ApplicationDto>> getApplicationsByOfferId(@PathVariable Long id) {
+		return ResponseEntity.ok(applicationService.getApplicationsByOfferId(id));
+	}
+
+	@GetMapping(value = "/{id}/application", produces = { "application/json" })
+	@ApiOperation(value = "Find applications by id")
+	public ResponseEntity<ApplicationDto> getById(@PathVariable Long id) {
+		return ResponseEntity.ok(applicationService.getById(id));
+	}
 
 	@PostMapping
 	@ApiOperation(value = "Create applicarion")
 	public ResponseEntity<?> createApplication(@RequestBody ApplicationDto applicationDto) {
 		ResponseEntity<?> responseEntity;
-		try{
+		try {
 			responseEntity = new ResponseEntity<>(applicationService.createApplication(applicationDto), HttpStatus.OK);
-		}catch(EntityNotFoundException e){
+		} catch (EntityNotFoundException e) {
 			responseEntity = new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_ACCEPTABLE);
-		}catch (ConstraintsException c ) {
+		} catch (ConstraintsException c) {
 			responseEntity = new ResponseEntity<>(c.getMessage(), HttpStatus.NOT_ACCEPTABLE);
 		}
-		
+
 		return responseEntity;
 	}
-	
-	@PutMapping(value ="/{id}")
+
+	@PutMapping(value = "/{id}")
 	@ApiOperation(value = "Create applicarion")
 	public ResponseEntity<?> updateApplication(@PathVariable Long id,
-            @RequestParam  ApplicationStatus applicationStatus) {
+			@RequestParam ApplicationStatus applicationStatus) {
 		ResponseEntity<?> responseEntity;
-		try{
-			responseEntity = new ResponseEntity<>(applicationService.updateApplication(id,applicationStatus), HttpStatus.OK);
-		}catch(EntityNotFoundException e){
+		try {
+			responseEntity = new ResponseEntity<>(applicationService.updateApplication(id, applicationStatus),
+					HttpStatus.OK);
+		} catch (EntityNotFoundException e) {
 			logger.warn(e.getMessage());
 			responseEntity = new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_ACCEPTABLE);
 		}
